@@ -1,5 +1,11 @@
 //Retrieving the id from url and storing in a variable called id
 const id = new URLSearchParams(window.location.search).get("id");
+
+// use of es6 Modules
+import { getNavbarHTML } from './modules/navbarModule.js';
+import { getFooter2HTML } from './modules/footerModule.js';
+document.querySelector('.m_container').innerHTML = getNavbarHTML();
+document.querySelector('.m_footer2').innerHTML = getFooter2HTML();
 //-----------------------------------------------------------------------------
 //Taking Reference of div  Where We are going to put all data
 const movieContainerEl = document.querySelector(".expandedMovieContainer");

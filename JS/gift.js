@@ -1,4 +1,8 @@
 // Selectors
+import { getNavbarHTML } from './modules/navbarModule.js';
+import { getFooter2HTML } from './modules/footerModule.js';
+document.querySelector('.m_container').innerHTML = getNavbarHTML();
+document.querySelector('.m_footer2').innerHTML = getFooter2HTML();
 
 const selectOption = document.querySelector('.options');
 const giftVouchers = document.querySelectorAll('.voucher-items');

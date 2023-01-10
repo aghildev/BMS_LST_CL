@@ -1,9 +1,13 @@
 const id = new URLSearchParams(window.location.search).get("id");
 
+import { getFooter2HTML } from './modules/footerModule.js';
+document.querySelector('.m_footer2').innerHTML = getFooter2HTML();
+
 const booking_head_el = document.querySelector(".booking_head");
 const booking_filter_el = document.querySelector(".booking_filter")
 let seatsToBookEl = document.querySelector(".seatstobook")
 const datesContainerEl = document.querySelector(".dates")
+const loader = document.getElementById("loader")
 
 let Api_key = "api_key=57b428c0e112b579eb26e2f43ff08b0f"
 let Base_Url = "https://api.themoviedb.org/3/"
@@ -15,6 +19,18 @@ const workshopContainer = document.querySelector(".workshop");
 // const res = await fetch(`/shows?date=27/12/2022`);
 // const data = await res.json();
 // let theatre = data.data.theatres;
+
+//Show loading
+function loading() {
+  loader.hidden = false;
+  //tweetsContainer.hidden = true;
+}
+//Hide Loading
+function complete() {
+  //tweetsContainer.hidden = false;
+  loader.hidden = true;
+
+}
 let currentTheatreName = '';
 
 const renderDetails = async () => {
